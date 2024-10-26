@@ -12,6 +12,7 @@
             .card("due")
             .get("due")
             .then(function (due) {
+              console.log(due)
               const dueDate = new Date(due);
 
               const timeOptions = {
