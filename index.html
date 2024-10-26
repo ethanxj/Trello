@@ -8,19 +8,13 @@
     <script>
       window.TrelloPowerUp.initialize({
         "card-badges": function (t, options) {
-          return t
-            .card("due")
-            .get("due")
+          return t.get('card', 'shared', 'due')
             .then(function (dueDate) {
-              const badgeText = dueDate
-                ? `Due: ${new Date(dueDate).toLocaleDateString()}`
-                : "No Due Date";
-
               return [
                 {
-                  text: badgeText,
-                },
-              ];
+                  text: dueDate
+                }
+              ]
             });
         },
       });
