@@ -15,12 +15,12 @@
               const dueDate = new Date(due);
 
               const timeOptions = {
-                timeZone: "Australia/Brisbane",
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 hour: "2-digit",
                 minute: "2-digit",
                 hourCycle: "h23",
               };
-              const dueTime = dueDate.toLocaleString("en-AU", timeOptions);
+              const dueTime = dueDate.toLocaleString("en", timeOptions);
 
               return [
                 {
