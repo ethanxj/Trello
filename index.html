@@ -11,8 +11,8 @@
           return t
             .card("due")
             .get("due")
-            .then(function (dueDate) {
-              
+            .then(function (due) {
+              const dueDate = new Date(due);
 
               const timeOptions = {
                 timeZone: "Australia/Brisbane",
