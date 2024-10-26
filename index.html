@@ -22,10 +22,10 @@
         "card-badges": function (t, opts) {
           let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
           return t
-            .card("name")
-            .get("name")
-            .then(function (cardName) {
-              console.log("We just loaded the card name for fun: " + cardName);
+            .card("due")
+            .get("due")
+            .then(function (due) {
+              console.log("We just loaded the card name for fun: " + due);
               return [
                 {
                   // Dynamic badges can have their function rerun
