@@ -7,37 +7,25 @@
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script>
       window.TrelloPowerUp.initialize({
-        "card-badges": function (t, opts) {
+        "card-badges": function(t, opts) {
           return t
             .card("due", "name")
-            .then(function (card) {
-              console.log(card);
-              console.log(card.name);
-              console.log(card.due);
+            .then(function(card) {
+              if (!card.due) return [];
               const dueDate = new Date(card.due);
-              console.log(dueDate);
-              const timeOptions = {
+              const dueTime = dueDate.toLocaleString("en", {
                 timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 hour: "2-digit",
                 minute: "2-digit",
                 hourCycle: "h23",
-              };
-              const dueTime = dueDate.toLocaleString("en", timeOptions);
-              console.log(dueTime);
-              if (dueTime === "00:00") {
-                return [];
-              } else {
-                return [
-                  {
-                    text: dueTime,
-                  },
-                ];
-              }
+              });
+              return [{ text: dueTime }];
             });
         },
       });
     </script>
   </body>
 </html>
+
 
 
