@@ -9,12 +9,13 @@
       window.TrelloPowerUp.initialize({
         "card-badges": function (t, opts) {
           return t
-            .card("due")
-            .get("due")
-            .then(function (due) {
-              console.log(due)
-              const dueDate = new Date(due);
-              console.log(dueDate)
+            .card("due", "name")
+            .then(function (card) {
+              console.log(card);
+              console.log(card.name);
+              console.log(card.due);
+              const dueDate = new Date(card.due);
+              console.log(dueDate);
               const timeOptions = {
                 timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 hour: "2-digit",
@@ -22,7 +23,7 @@
                 hourCycle: "h23",
               };
               const dueTime = dueDate.toLocaleString("en", timeOptions);
-              console.log(dueTime)
+              console.log(dueTime);
               if (dueTime === "00:00") {
                 return [];
               } else {
@@ -38,4 +39,5 @@
     </script>
   </body>
 </html>
+
 
