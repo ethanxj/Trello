@@ -12,8 +12,9 @@
             .card("due")
             .get("due")
             .then(function (due) {
+              console.log(due)
               const dueDate = new Date(due);
-
+              console.log(dueDate)
               const timeOptions = {
                 timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 hour: "2-digit",
@@ -21,7 +22,7 @@
                 hourCycle: "h23",
               };
               const dueTime = dueDate.toLocaleString("en", timeOptions);
-
+              console.log(dueTime)
               if (dueTime === "00:00") {
                 return [];
               } else {
@@ -37,3 +38,4 @@
     </script>
   </body>
 </html>
+
